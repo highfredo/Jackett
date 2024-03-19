@@ -80,7 +80,7 @@ namespace Jackett.Common.Utils.Clients
                     cookies.Add(cookieUrl, new Cookie(kv.Key, kv.Value));
             }
 
-            using (var clearanceHandlr = new ClearanceHandler(serverConfig.FlareSolverrUrl))
+            using (var clearanceHandlr = new MyClearanceHandler(serverConfig.FlareSolverrUrl))
             {
                 clearanceHandlr.MaxTimeout = serverConfig.FlareSolverrMaxTimeout;
                 clearanceHandlr.ProxyUrl = serverConfig.GetProxyUrl(false);

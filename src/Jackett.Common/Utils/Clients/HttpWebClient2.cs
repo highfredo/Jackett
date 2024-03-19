@@ -21,7 +21,7 @@ namespace Jackett.Common.Utils.Clients
     public class HttpWebClient2 : WebClient
     {
         private readonly CookieContainer cookies;
-        private ClearanceHandler clearanceHandlr;
+        private MyClearanceHandler clearanceHandlr;
         private HttpClientHandler clientHandlr;
         private HttpClient client;
 
@@ -57,7 +57,7 @@ namespace Jackett.Common.Utils.Clients
 
         public void CreateClient()
         {
-            clearanceHandlr = new ClearanceHandler(serverConfig.FlareSolverrUrl)
+            clearanceHandlr = new MyClearanceHandler(serverConfig.FlareSolverrUrl)
             {
                 MaxTimeout = serverConfig.FlareSolverrMaxTimeout,
                 ProxyUrl = serverConfig.GetProxyUrl(false),
